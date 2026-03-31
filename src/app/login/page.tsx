@@ -5,6 +5,7 @@ export const dynamic = 'force-dynamic'
 import { useState } from 'react'
 import { createClient } from '@/lib/supabase/client'
 import { useRouter } from 'next/navigation'
+import Link from 'next/link'
 
 export default function LoginPage() {
   const [email, setEmail] = useState('')
@@ -37,13 +38,13 @@ export default function LoginPage() {
         <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-blue-500/10 blur-3xl rounded-full group-hover:bg-blue-500/20 transition-all duration-500"></div>
 
         <div className="relative text-center mb-10">
-          <h1 className="text-4xl font-bold text-amber-500 mb-2">Universal Profits</h1>
+          <h1 className="text-4xl font-bold text-amber-500 mb-2 tracking-tighter">UNIVERSAL PROFITS</h1>
           <p className="text-slate-400">Acceso Seguro al Futuro</p>
         </div>
 
         <form onSubmit={handleLogin} className="space-y-6">
           <div>
-            <label className="block text-sm font-medium text-slate-400 mb-2">Correo Electrónico</label>
+            <label className="block text-sm font-medium text-slate-400 mb-2 tracking-widest uppercase text-[10px]">Correo Electrónico</label>
             <input
               type="email"
               value={email}
@@ -55,7 +56,7 @@ export default function LoginPage() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-slate-400 mb-2">Contraseña</label>
+            <label className="block text-sm font-medium text-slate-400 mb-2 tracking-widest uppercase text-[10px]">Contraseña</label>
             <input
               type="password"
               value={password}
@@ -69,14 +70,17 @@ export default function LoginPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-4 bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 font-bold rounded-xl hover:from-amber-400 hover:to-amber-500 transform hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full py-4 bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 font-black rounded-xl hover:from-amber-400 hover:to-amber-500 transform hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-xl shadow-amber-500/20"
           >
-            {loading ? 'Entrando...' : 'Iniciar Sesión'}
+            {loading ? 'Entrando al Motor...' : 'Iniciar Sesión'}
           </button>
         </form>
 
         <div className="mt-8 text-center text-sm text-slate-500">
-          ¿No tienes una cuenta? <a href="/register" className="text-amber-500 hover:underline">Regístrate</a>
+          ¿No tienes una cuenta? {' '}
+          <Link href="/register" className="text-amber-500 font-bold hover:underline transition-all">
+            Regístrate ahora
+          </Link>
         </div>
       </div>
     </div>
